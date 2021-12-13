@@ -1,0 +1,31 @@
+INSTALACION DE BOVEDA PriMArIA
+
+
+
+paso 1......
+
+Instalacion de boveda primaria "usando amis de cyberark" - despliegue manual
+
+
+- CAVaultManager.exe PostInstall /AcceptEULA /RecPub "C:\Users\administrator\Downloads\recpub.key" /LicensePath "C:\Users\administrator\Downloads\license.xml" /AdminPass "Cyberark1" /MasterPass "Cyberark12" /DRPassword "Cyberark123" /CloudVendor AWS /CloudRegion us-east-2
+
+
+Configuracion de usuario DR en el almacen principal
+
+
+ENABLE REGISTRATION
+
+Este proceso le permite registrar un nuevo usuario de DR en el almacén primario. Cuando ejecuta el comando en el procedimiento, tiene una hora (60 minutos)
+
+CAVaultManager.exe EnableVaultRegistration /AdminUserName  Administrator /AdminPass "Cyberark1" /DRUserName DR /Secret "Cyberark1234"
+
+
+Este procedimiento describe cómo configurar un nuevo almacén de DR mediante La imagen de Amazon (AMI) de CyberArk y proteger las claves en el Servicio de administración de claves (KMS).
+
+PADR.exe RegisterVault /AcceptEULA /DRUsername DR /DRUserPassword "Cyberark123" /DRUserSecret "Cyberark1234" /CloudVendor AWS /CloudRegion us-east-2 /PrimaryVaultIP 172.33.33.111 /EnableFailover /RDPGatewayIP 37.140.60.188    
+
+
+
+
+
+
